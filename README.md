@@ -333,7 +333,7 @@ Remember, if you want to change the name of the components declared on the XDC, 
 To implement the program on the QSPI memory, the next steps must be followed:
 
 - Step 1: Connect pins J9 and J10
-- 
+
 Pins J9 and J10 of the Basys 3 are connected to the QSPI memory controller of the FPGA. To configure the Basys 3 for QSPI programming mode, it is necessary to connect these pins to a QSPI programmer. The QSPI programmer must provide power to the Basys 3.
 
 - Step 2: Open QSPI programming software
@@ -347,8 +347,8 @@ After adding this information, we will be presented with two options. We will ch
 With this, the file will be ready and the next thing we must do is verify that the boxes:
 
 - Erase
--Program
--Verify
+- Program
+- Verify
 
 Are activated and then click on the "Apply" button. In the "Configuration File" section, click the three dots (...) and navigate to the projects you created. Go to the folder with the file extension ".runs" and find the deployment files. After that, select the one you want to save.
 
