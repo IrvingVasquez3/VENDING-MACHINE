@@ -279,8 +279,6 @@ When the purchase is confirmed (Confirm_purchase_IN is high), it counts to 18, t
 The LEDs show an ascending bit pattern, achieving a cascade effect, where the LEDs turn off from the largest LED (15) to the smallest (0).
  
 When signal_endCount is high, LEDS is set to zero. 
-
-[Back to Top](#top)
   
 # Validation of the EDA Playground Testbench
 
@@ -293,9 +291,9 @@ However, with the next link, you can instantly use it with EDA Playground. Just 
 https://edaplayground.com/x/R4By
 
 [Back to Top](#top)
-## Initial Setup
+## Extra Configuratios
 
-### Installation
+### XDC Configuration
 Is important to say that is recomended to install Ubuntu 20.04 in the computer not in a Virtual Box.
 The OpenManipulator is configurated to work in ROS Noetic in the mentioned Ubuntu version, once the Ubuntu is installed is recomended to install ROS from the Wiki:
 http://wiki.ros.org/noetic/Installation/Ubuntu
