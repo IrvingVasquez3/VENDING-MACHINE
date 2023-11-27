@@ -66,10 +66,8 @@ Outputs (out):
 Modules and Submodules:
  
 -	Frequency Dividers (div_freq):
- 
--	Generates several clocks divided from the main frequency (clk100Mhz).
- 
--	They are used to create several clocks of different frequencies for different modules.
+Generates several clocks divided from the main frequency (clk100Mhz).
+They are used to create several clocks of different frequencies for different modules.
  
  
  
@@ -79,7 +77,7 @@ Used to debounce button signals (UP, DOP, CP, DP, RST, BUY_CONF).
 Provides debounced (UP_IN_SIN_REB, DOP_IN_SIN_REB, etc.) and pulsed signals.
  
  
-     Money Adder (money_sum):
+ Money Adder (money_sum):
  
 -	Add up the money received based on the buttons pressed and monitor the status of the system.
  
