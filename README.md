@@ -283,9 +283,13 @@ When signal_endCount is high, LEDS is set to zero.
   
 # Validation of the EDA Playground Testbench
 
-Made the DH parameters, it is possible to obtain the direct and inverse kinematics of the robot, this will be done using the Matlab software, in conjunction with Peter Corke's "Robotics Toolbox" plugin, by obtaining and validating both kinematics we can obtain the kinematic analysis of the robot.
+Before implementing the code on the Basys 3, you can use a testbench code to test the correct fuction of the project.
 
-In general, the procedure consists of generating the robot in Matlab, giving the specifications of the measurements and types of the joints, as well as the rotation that they have, that is, substituting the values in the DH matrix, which remains in the following way:
+In the files provided for this project, you can find a VHDL code that has the purpose to be used as a testbenh. You can use it in the compiler of your election.
+
+However, with the next link, you can instantly use it with EDA Playground. Just type the conditions you want:
+
+https://edaplayground.com/x/R4By
 
 <p align="center">
   <img src="Images/DHvalores.PNG" alt="Imagen Open">
