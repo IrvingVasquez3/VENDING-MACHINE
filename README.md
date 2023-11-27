@@ -280,7 +280,7 @@ In the files provided for this project, you can find a VHDL code that has the pu
 
 However, with the next link, you can instantly use it with EDA Playground. Just type the conditions you want:
 
-https://edaplayground.com/x/R4By
+https://edaplayground.com/x/BD4G
 
 [Back to Top](#top)
 # Extra Configurations
