@@ -328,7 +328,7 @@ But if you want to do it manually, you must follow the following steps:
 Remember, if you want to change the name of the components declared on the XDC, you also must change their name in the VHDL codes.
 
 [Back to Top](#top)
-### Running the program
+## Running the program
 Now that we have made the extra configurations, we can run and test the program with the Basys 3.
 
 If you used the QSPI configuration to save it in the internal memory of the FPGA, you will only need to press the SET button to call the code and wait for the code to be active.
@@ -340,69 +340,36 @@ Since we verify that the code is active (the green LED is on), all that remains 
   <a href="https://www.youtube.com/watch?v=2hHGZxMNnmc"><img src="https://img.youtube.com/vi/2hHGZxMNnmc/0.jpg" alt="Video de Vending Machine"></a>
 </p>
 
-## Changes in the original project
-All the codes were created in c++ taking as a base the Original file of OpenManipulator_Teleop, if you want to use this example of pick and place you can add all the files to the original documents in the part of OpenManipulator_Teleop, as the Header, the Lunch and the C++ in the src file where is located the program, also is important to modify the CMakeLists.txt, the exact part that needs to be added is the following part:
+Now, you can try any combination you want.
 
-```ROS
-add_executable(open_manipulator_teleop_Pick_and_Place src/open_manipulator_teleop_Pick_and_Place.cpp)
-add_dependencies(open_manipulator_teleop_Pick_and_Place ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(open_manipulator_teleop_Pick_and_Place ${catkin_LIBRARIES})
-```
-Where this code is responsible for compiling and building an executable named "open_manipulator_teleop_Pick_and_Place", specifying its dependencies, and linking necessary libraries to it in a ROS project.
+## Future Improvements
 
-You can add this files in VS code or in a text note just save the files with the same name and termination, and for the Cmake just modify it.
-
-
-## Add New Things
-
-If you want to contribute to this project, please follow these steps:
-
-1. Set the positions of the things that where the Open will do the pick and place.
-2. With the matlab codes calculate the inverse kinematics to obtain the positions of the ariticulations.
-3. That values can be simulated with the GUI Program. (Do not forget to connect to the Open before, just instead of lunch the new program lunch the following one)
-```ROS
-roslaunch open_manipulator_control_gui open_manipulator_control_gui.launch
-```
-<p align="center">
-  <img src="Images/GUI.png" alt="GUI" style="width:45%;"> 
-</p>
-
-4. Verify the positions and save it in the new cpp code .
-5. Is recomended to simulate first in Gazebo to avoid problems with the real Open.
-
-Launch Gazebo:
-```ROS
-$ roslaunch open_manipulator_gazebo open_manipulator_gazebo.launch
-```
-Connect the Open to Gazebo
-```ROS
-$ roslaunch open_manipulator_controller open_manipulator_controller.launch use_platform:=false
-```
-Launch your program
-```ROS
-$ roslaunch open_manipulator_teleop open_manipulator_teleop_Pick_and_Place.launch
-```
-<p align="center">
-  <img src="Images/Gazebo.png" alt="Gazebon" style="width:45%;"> 
-</p>
-
-
-if the simulation is correct now you can do it with the OpenManipulatorX
+Once you run the program, you can see that, although we have entered money, when selecting the product and confirming the purchase, the product dispensing LEDs will not light up, but a value will be displayed in the change. This is because a smaller quantity is entered than the selected product.
+ 
+To address this issue, a sign can be installed indicating that the vending machine will only accept the exact quantity or value greater than the selected product. If you enter a lower amount, the machine will retain the money and no refund will be made.
+ 
+Another possible solution is that the error is due to the fact that the comparison in the code between the cost of the product and the money entered does not consider the scenario in which the amount entered is less than the cost necessary to dispense the product. As a result, the code cannot determine which process to follow, which prevents the dispensing indicator LEDs from turning on and the system does not function as expected.
+ 
+A new scenario could be programmed in which the money is returned if the amount entered is less than what is necessary to purchase the product. I invite the reader to try both this solution and the previous one to optimize the project, highlighting a clear action for the user or the possibility of improving the code.
 
 ## Important Links
-For the VHDL compiler you can use this link to check it:
+For the VHDL compiler, you can use this website to work on it :
 
-–link eda
+https://edaplayground.com/
 
-For the QSPI you can check this link:
+For the testbench online, acess this link:
+
+https://edaplayground.com/x/R4By
+
+For extra information about the QSPI implementation, you can check this link:
 
 https://youtu.be/5pV0R82A_CE?si=vsrD9TKzp-9_Ht8v
 
-For the Basys 3:
+For the Basys 3 Reference Manual:
 
 https://digilent.com/reference/programmable-logic/basys-3/reference-manual
 
-Also, other source where more information can be found is the the following book:
+Also, other source where more information about VHDL configuration can be found is the the following book:
 
 https://issuu.com/umbrella12/docs/2019_book_quickstartguidetovhdl
 
@@ -420,4 +387,6 @@ Irving Alejandro Vásquez Salinas - irving.vasquezss@udlap.mx - IrvingVasquez3
 
 Project Link: 
 
-# Enjoy, entertain yourself, and improve the program!
+And remember...
+
+# Enjoy, entertain, and improve: Motivate yourself, design and program!
