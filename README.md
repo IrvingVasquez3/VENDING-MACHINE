@@ -302,16 +302,17 @@ For convenience, you can simply add the shared XDC to the code folder.
 
 But if you want to do it manually, you must follow the following steps:
 
+- You must first activate the FPGA's built-in clock:
 <p align="center">
   <img src="Imagenes/XDCIM/CLOCK.jpg" alt="Pick and Place program" style="width:55%;"> 
 </p>
-
+- The next step is to configure the LEDs. They are all activated since the code requires it.
 <p align="center">
-  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
+  <img src="Imagenes/XDCIM/LEDS1.jpg" alt="Pick and Place program" style="width:55%;"> 
 </p>
 
 <p align="center">
-  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
+  <img src="Imagenes/XDCIM/LEDS2.jpg" alt="Pick and Place program" style="width:55%;"> 
 </p>
 
 <p align="center">
