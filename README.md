@@ -337,7 +337,7 @@ Since we verify that the code is active (the green LED is on), all that remains 
 
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=c"><img src="https://img.youtube.com/vi/2hHGZxMNnmc/0.jpg" alt="Video de Vending Machine"></a>
+  <a href="https://www.youtube.com/watch?v=2hHGZxMNnmc"><img src="https://img.youtube.com/vi/2hHGZxMNnmc/0.jpg" alt="Video de Vending Machine"></a>
 </p>
 
 ## Changes in the original project
