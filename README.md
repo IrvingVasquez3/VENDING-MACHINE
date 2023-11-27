@@ -135,11 +135,6 @@ This design has the advantage that the frequency of clkDivided can be easily cha
 
 The code also includes a reset to reset the counter and split clock signal at any time.
 
-  
-  <p align="center">
-  <img src="Images/procesomatriz.PNG" alt="Imagen Open">
-  </p>
-  
 ## Counter from 0 to N bits
 
 The code is an N-bit counter in VHDL.
@@ -293,87 +288,41 @@ https://edaplayground.com/x/R4By
 [Back to Top](#top)
 ## Extra Configuratios
 
+In order to implement this project on a Basys 3, you must use the Vivado software.
+
+In our case, we use version 2018.2 (This is the one in which the project is located in the folder), so if you want to directly open the project, you will need that version.
+
+If you want to use another version, just start a new project and configure it in the usual way, and when adding the design sources, simply add the shared VHDL codes.
+
 ### XDC Configuration
-Is important to say that is recomended to install Ubuntu 20.04 in the computer not in a Virtual Box.
-The OpenManipulator is configurated to work in ROS Noetic in the mentioned Ubuntu version, once the Ubuntu is installed is recomended to install ROS from the Wiki:
-http://wiki.ros.org/noetic/Installation/Ubuntu
 
+In order to indicate to the FPGA which components it will use, a constrain file, in the XDC format, must be used.
 
-However the installation also can be donde with this comand that is the fast installation:
-```ROS
-$ sudo apt update
-$ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_noetic.sh
-$ chmod 755 ./install_ros_noetic.sh
-$ bash ./install_ros_noetic.sh
-```
+For convenience, you can simply add the shared XDC to the code folder.
 
-Install dependent pacakges
-```ROS
-$ source ~/.bashrc
-$ sudo apt-get install ros-noetic-ros-controllers ros-noetic-gazebo* ros-noetic-moveit* ros-noetic-industrial-core
-$ sudo apt install ros-noetic-dynamixel-sdk ros-noetic-dynamixel-workbench*
-$ sudo apt install ros-noetic-robotis-manipulator
-```
-Download and build OpenMANIPULATOR-X packages
-```ROS
-$ cd ~/catkin_ws/src/
-$ git clone -b noetic-devel https://github.com/ROBOTIS-GIT/open_manipulator.git
-$ git clone -b noetic-devel https://github.com/ROBOTIS-GIT/open_manipulator_msgs.git
-$ git clone -b noetic-devel https://github.com/ROBOTIS-GIT/open_manipulator_simulations.git
-$ git clone https://github.com/ROBOTIS-GIT/open_manipulator_dependencies.git
-$ cd ~/catkin_ws && catkin_make
-```
-This project is an addition for the OpenManipulator_teleop. A CPP program was created in the 'src' directory, and all the dependencies such as the launch files and headers were created. Additionally, the CMake file was modified to add the pick and place function. To use this project, ensure that all the OpenMANIPULATOR-X packages are installed. Then, create a new code file with the desired name and location, either through VS Code or directly in a text editor. Remember to save the file with the corresponding name. You can check deeper this part in Changes in the original project
-### Open CR
-Once all the OpenMANIPULATOR-X packages are installed and ROS (Robot Operating System), the hardware provided by the lab for the manipulation of the robot is the OpenCR
+But if you want to do it manually, you must follow the following steps:
+
 <p align="center">
-  <img src="Images/opencr.png" alt="Open CR" style="width:20%;"> 
+  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
 </p>
-In order to connect the computer to the Open Manipulator X, it is important to download Arduino. As of the date of this project, the downloaded version is Arduino IDE 1.8.19, specifically for Linux.
 
-
-https://www.arduino.cc/en/software
-
-
-Once Arduino is downloaded, is time to configured the Open CR to the port of the computer, the Open has a guide where in case of the Open CR is not flashed the new user can configured as well in the following link:
-
-https://emanual.robotis.com/docs/en/parts/controller/opencr10/#arduino-ide
-
-First the ports are configured:
-
-USB Port Settings
-```ROS
-$ wget https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/99-opencr-cdc.rules
-$ sudo cp ./99-opencr-cdc.rules /etc/udev/rules.d/
-$ sudo udevadm control --reload-rules
-$ sudo udevadm trigger
-```
-Compiler Settings
-```ROS
-$ sudo apt-get install libncurses5-dev:i386
-```
-Now once Arduino is downloaded extract the file and install it.
-
-```ROS
-$ cd ~/downloads/arduino-1.8.19
-$ ./install.sh
-```
-Set the file path of installed Arduino IDE as an absolute path named PATH in the bashrc file.
-```ROS
-$ gedit ~/.bashrc
-$ export PATH=$PATH:$HOME/tools/arduino-1.8.19
-$ source ~/.bashrc
-```
-Porting to Arduino IDE(Linux)
-Install the OpenCR package via Boards Manager
-Click Tools → Board → Boards Manager.
 <p align="center">
-  <img src="Images/Openboard.png" alt="Board configuration" style="width:30%;"> 
+  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
 </p>
+
 <p align="center">
-  <img src="Images/Openboard2.png" alt="Port Configuration " style="width:30%;"> 
+  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
 </p>
-However, if is not clear enough there is the link for the Open CR in the links given above
+
+<p align="center">
+  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
+</p>
+
+<p align="center">
+  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
+</p>
+
+Remember, if you want to change the name of the components declared on the XDC, you also must change their name in the VHDL codes.
 
 [Back to Top](#top)
 ### Simulation
