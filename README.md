@@ -39,11 +39,14 @@ To run this project you need the following components:
 
 # VHDL Code Development
 
-### Coin Detector.
+### Frequency Divider (div_freq_1_hz).
 
-The Denavit-Hartenberg (DH) parameters are a systematic procedure that is used to describe the kinematic structure of an articulated chain made up of joints with a single degree of freedom. Through this procedure, the DH matrix is obtained, the which includes data such as the distance to move in the z axis (d1), the distance to move in the x axis (a1), the rotation to perform in the z axis (theta1) and the rotation in the x axis (alpha1).
+The code is divided into two processes, gen_clock and persecond. The gen_clock process is responsible for counting and updating the clock state. When the counter reaches its maximum value (max_count), the clock is inverted (from 0 to 1 or vice versa). The counter is then reset to 0.
+The persecond process simply takes the split clock value (clk_state) and assigns it to the clkSplit output signal.
+This design has the advantage that the frequency of clkDivided can be easily changed by simply changing the value of max_count. Additionally, using an event-based account ensures that the split clock has a consistent, well-defined period, which is useful for controlling devices.
+A disadvantage of this design is that it consumes more resources than other frequency division methods, such as D flip-flops, but it has the advantage of being more flexible and not relying on external components such as counters.
+The code also includes a reset to reset the counter and split clock signal at any time.
 
-It is important to mention that for the construction and simulation of this robot, the first two articulations are generated first, then it must be observed that q2 has an offset, because it must be taken into account that the distance from the hypotenuse is measured. From the links of articulations 2 and 3, created the offset, it is possible to continue with the third articulation, likewise, from this third articulation the offset of articulation 2 must be subtracted, this because ee is the only offset, with this it is possible to create the fourth update.
   
   <p align="center">
   <img src="Images/procesomatriz.PNG" alt="Imagen Open">
