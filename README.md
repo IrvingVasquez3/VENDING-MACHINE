@@ -19,7 +19,7 @@ The Basys 3 is an FPGA (Field Programmable Gate Array) board and stands as one o
 - [VHDL Code Development](#vhdl-code-development)
   - [Main](#main-code)
   - [Frequency Divider](#frequency-divider-(div_freq_1_hz).)
-  - [Counter from 0 to N bits](#frequency-divider-(div_freq_1_hz).)
+  - [Counter from 0 to N bits](#frequency-divider-(div-_-freq-_-1-_-hz).)
   - [Demultiplexer to show numbers on display](#frequency-divider-(div_freq_1_hz).)
   - [Adder](#frequency-divider-(div_freq_1_hz).)
   - [Product Selector](#frequency-divider-(div_freq_1_hz).)
