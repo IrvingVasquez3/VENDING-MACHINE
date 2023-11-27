@@ -73,11 +73,10 @@ Modules and Submodules:
  
  
  
-     Debouncer (debouncer):
+- Debouncer (debouncer):
  
--	Used to debounce button signals (UP, DOP, CP, DP, RST, BUY_CONF).
- 
--	Provides debounced (UP_IN_SIN_REB, DOP_IN_SIN_REB, etc.) and pulsed signals.
+Used to debounce button signals (UP, DOP, CP, DP, RST, BUY_CONF).
+Provides debounced (UP_IN_SIN_REB, DOP_IN_SIN_REB, etc.) and pulsed signals.
  
  
      Money Adder (money_sum):
