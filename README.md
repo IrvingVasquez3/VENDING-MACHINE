@@ -409,7 +409,7 @@ https://issuu.com/umbrella12/docs/2019_book_quickstartguidetovhdl
 ## Contact 
 Authors:
 
-Ricado Ramos Morales - ricardo.ramosms@udlap.mx - Github: 
+Ricado Ramos Morales - ricardo.ramosms@udlap.mx - Github: ricardoRamoM
 
 Adriel Ivann Ferrer Alejo - adriel.ferrerao@udlap.mx - Github: IvannFerrer 
 
