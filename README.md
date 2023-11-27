@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Vending Machine
 <p align="center">
-  <img src="Images/Open.jpg" alt="Image Open" style="width:30%;"> 
+  <img src="Images/Imagen de WhatsApp 2023-11-26 a las 19.28.06_b7b0da3c.jpg" alt="Image Open" style="width:30%;"> 
 </p>
 
 
