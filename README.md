@@ -453,7 +453,7 @@ Adriel Ivann Ferrer Alejo - adriel.ferrerao@udlap.mx - Github: IvannFerrer
 
 Irving Alejandro Vásquez Salinas - irving.vasquezss@udlap.mx - IrvingVasquez3
 
-Project Link: 
+Project Link: https://github.com/IrvingVasquez3/VENDING-MACHINE
 
 
 # And remember... Enjoy, entertain, and improve: Motivate yourself, design and program!
