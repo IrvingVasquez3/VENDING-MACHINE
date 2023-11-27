@@ -328,27 +328,16 @@ But if you want to do it manually, you must follow the following steps:
 Remember, if you want to change the name of the components declared on the XDC, you also must change their name in the VHDL codes.
 
 [Back to Top](#top)
-### Simulation
-Once all the previous steps are done the implementation can be done.
+### Running the program
+Now that we have made the extra configurations, we can run and test the program with the Basys 3.
 
-For initialized the Open is command is necessary to give torque to the motors by the following comand:
-```ROS
-$ roslaunch open_manipulator_controller open_manipulator_controller.launch usb_port:=/dev/ttyACM0 baud_rate:=1000000
-```
-To run the project you need to write the following command
-```ROS
-$ roslaunch open_manipulator_teleop open_manipulator_teleop_Pick_and_Place.launch
-```
-<p align="center">
-  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
-</p>
-Once the user select a option, the interface will be showing each step that the robot needs to complete the task selected.
+If you used the QSPI configuration to save it in the internal memory of the FPGA, you will only need to press the SET button to call the code and wait for the code to be active.
 
-Finally, depending of the choice the robot wil start moving, in the video is shown the Palletizing and the Depalletizing:
+Since we verify that the code is active (the green LED is on), all that remains is to try to enter money, select a product and confirm the purchase.
 
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=AY5m8ooS1Zg"><img src="https://img.youtube.com/vi/AY5m8ooS1Zg/0.jpg" alt="Video de pick and place"></a>
+  <a href="https://www.youtube.com/watch?v=c"><img src="https://img.youtube.com/vi/2hHGZxMNnmc/0.jpg" alt="Video de Vending Machine"></a>
 </p>
 
 ## Changes in the original project
