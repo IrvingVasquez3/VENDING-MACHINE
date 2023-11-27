@@ -49,15 +49,66 @@ The persecond process simply takes the split clock value (clk_state) and assigns
 
 This design has the advantage that the frequency of clkDivided can be easily changed by simply changing the value of max_count. Additionally, using an event-based account ensures that the split clock has a consistent, well-defined period, which is useful for controlling devices.
 
-A disadvantage of this design is that it consumes more resources than other frequency division methods, such as D flip-flops, but it has the advantage of being more flexible and not relying on external components such as counters.
-
 The code also includes a reset to reset the counter and split clock signal at any time.
 
   
   <p align="center">
   <img src="Images/procesomatriz.PNG" alt="Imagen Open">
   </p>
-[Back to Top](#top)
+  
+## Counter from 0 to N bits (counterNbits).
+
+The code is an N-bit counter in VHDL.
+
+The counter starts at 0 and increments by 1 each time the 100 MHz clock (clk_100MHz_counter) goes high (positive clock event).
+
+When "count_enable" is activated, the counter increments its value.
+
+When the counter reaches the maximum value allowed by N bits (2^N - 1), an output signal "terminal_count" is generated.
+
+The output "counter_out" is an N-bit vector representing the current value of the counter.
+The output "counter_out_int" is an integer representing the current value of the counter.
+
+
+The code defines a counter that counts up to the maximum value allowed by N bits and resets itself when this value is reached. It can also be enabled and disabled using the "count_enable" signal. The output of the counter is an N-bit vector and an integer. 
+
+The "terminal_count" signal is activated when the counter reaches its maximum value.
+
+## Demultiplexer to show numbers on display (demux_display).
+
+The circuit shown is a multiplexer (mux) that is responsible for controlling which display should turn on. This is achieved using a clock signal (clk1000hz) and a state signal (refresh_state).
+
+The mux has 4 outputs, which represent the 4 displays in the circuit. To determine which display should be turned on, a process based on a counter is used that runs through all possible state values.
+
+The "show_display" process uses a sequence of 16 possible values for the state, which are divided into 4 substates of 4 values each. Each substate represents a different state that the mux must be in to control which display should turn on.
+
+The mux also uses a register called "display_sel" to store the current display selection. The "curr_display" signal is used to send this information to the outside of the mux.
+
+Additionally, the "show_display" process uses a set of case instructions to determine which values should be shown on the displays based on the current display selection and other input signals (Confirm_purchase_IN).
+
+Finally, it is worth mentioning that the circuit design is based on a multiplexer with a minimum of components, which facilitates its implementation and reduces costs. However, the use of a register and a counter also involves some consumption of additional resources in terms of time and area.
+
+## Adder (money_sum).
+The sum of money is a module that counts the coins received at a dispenser. To implement this module, we must first create a record that stores the amount of money received so far.
+
+The "prev_currency" register is updated every time a currency is detected. The variables UP_IN, DOP_IN, CP_IN and DP_IN are used to detect the receipt of coins. When a coin is detected, the "prev_currency" register is incremented by 1, 2, 5, or 10, depending on the coin that was received.
+
+The "DineroReci" signal is used to inform the rest of the system of the amount of money received. This signal is an-output of the module.
+
+ The "ReceiveMoney" signal is an-output that indicates whether money has been received or not. It is set to '1' when a coin is detected and reset to '0' when no coin is detected.
+ 
+Additionally, an additional signal "RST_IN" is used to reset the money counter. When "RST_IN" is '1', the money counter is reset to 0.
+
+Finally, a process is implemented that manages the flow of information. This process checks if a coin has been detected or the command to reset the money counter has been received. If a currency has been detected, the "prev_currency" register is incremented based on the currency that was received. If the command to reset the money counter has been received, the register "prev_currency" is reset to 0.
+
+In summary, the sum_money module counts the coins received at a dispenser. To do this, it uses a register to store the amount of money received and performs increment and reset operations based on input signals indicating the receipt of coins and the command to reset the money counter.
+The buttons on the machines register the following data:
+
+UP_IN – One peso
+DOP_IN – Two pesos
+CP_IN – Five pesos
+DP_IN – Ten pesos
+
   
 ### Obtaining and validation of the Forward Kinematics and Inverse Kinematics using Matlab.
 
