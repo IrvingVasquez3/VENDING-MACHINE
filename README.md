@@ -247,6 +247,16 @@ The "debouncer" module is designed to work with clocks up to 100 MHz and is capa
 ## Dispenser States
 
 This code represents an FSM (Finite State Machine) that controls the states of a dispenser.
+
+To express the FSM, we use the next diagram:
+
+<p align="center">
+  <img src="Imagenes/FSM.png" alt="Image Open" style="width:30%;"> 
+</p>
+
+The explanation is the next one:
+
+The state machine changes state whenever a product selection is read, this occurs when selecting a switch of the products. In the “state_Wait” state, the signal for dispensing a product and giving change is set to zero. On the other hand, in the state "state_P_Select" means that there is a selected product and in that state, depending on the money entered and the value of the product, the signals to dispense and give change will be sent depending on whether it is enough, if it exceeds or if it lacks money for The dispense and change signal serves to activate other sections of the code depending on what needs to be done.
  
 The code is organized into different logical blocks: STATE_MEMORY, NEXT_STATE_LOGIC and OUTPUT_LOGIC.
  
