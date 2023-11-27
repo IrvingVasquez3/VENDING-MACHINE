@@ -451,7 +451,7 @@ Ricado Ramos Morales - ricardo.ramosms@udlap.mx - Github: ricardoRamoM
 
 Adriel Ivann Ferrer Alejo - adriel.ferrerao@udlap.mx - Github: IvannFerrer 
 
-Irving Alejandro Vásquez Salinas - irving.vasquezss@udlap.mx - IrvingVasquez3
+Irving Alejandro Vásquez Salinas - irving.vasquezss@udlap.mx - Github: IrvingVasquez3
 
 Project Link: https://github.com/IrvingVasquez3/VENDING-MACHINE
 
