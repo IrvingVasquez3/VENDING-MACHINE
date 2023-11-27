@@ -387,6 +387,5 @@ Irving Alejandro Vásquez Salinas - irving.vasquezss@udlap.mx - IrvingVasquez3
 
 Project Link: 
 
-And remember...
 
-# Enjoy, entertain, and improve: Motivate yourself, design and program!
+# And remember... Enjoy, entertain, and improve: Motivate yourself, design and program!
