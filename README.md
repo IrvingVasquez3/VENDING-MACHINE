@@ -53,7 +53,7 @@ To run this project you need the following components:
 
 In this section, the codes that compose this project will be described.
 
-## Main Code (main)
+## Main Code
 
 General structure:
  
