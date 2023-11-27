@@ -8,7 +8,13 @@
 <p align="center">This is a simulation of the behavior for the hardware of a vending machine in VHDL.
 
 ## Project Overview
+This project consists of a vending machine capable of offering 5 products of different values and that can receive 4 types of coins (1, 2, 5, 10 MXN). The system of a Basys 3 is designed to help us show the amount of money inserted through two 7-segment displays. A sequential circuit has been implemented to control the operation of the machine.
+ 
+Subsequently, a purchase confirmation button was incorporated, the option to provide change and the display of the total change on two 7-segment displays. These additions allow the user to confirm the purchase, receive the corresponding change, and view the total amount of change in the vending machine.
+
+
 The Basys 3 is an FPGA (Field Programmable Gate Array) board and stands as one of the most recommended and utilized tools for student training in system development through hardware description. In this project, the internal simulation of a candy vending machine will be carried out, aiming to receive money, dispense the product, and, if necessary, provide change. Prior to this stage, a thorough analysis of the development of a sequential design in VHDL will be conducted, specifically tailored for the Basys 3 board. This analysis will be performed using the EDA Playground development environment in collaboration with the Vivado 2018.2 plugin developed by Xilinx, Inc. To implement the design code for the Basys 3 board, we will use the Vivado 2018.2 software.
+
   
   
   
