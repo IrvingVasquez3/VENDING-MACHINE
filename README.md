@@ -336,13 +336,29 @@ To implement the program on the QSPI memory, the next steps must be followed:
 
 Pins J9 and J10 of the Basys 3 are connected to the QSPI memory controller of the FPGA. To configure the Basys 3 for QSPI programming mode, it is necessary to connect these pins to a QSPI programmer. The QSPI programmer must provide power to the Basys 3.
 
+<p align="center">
+  <img src="Imagenes/QSPI/Imagen1.png" alt="Image Open" style="width:30%;"> 
+</p>
+
 - Step 2: Open QSPI programming software
 
 For this section, we will right-click on the option shown in the image and then select "Add Configuration Memory Device."
 
+<p align="center">
+  <img src="Imagenes/QSPI/Imagen2.png" alt="Image Open" style="width:30%;"> 
+</p>
+
 Later, we will consult the Basys 3 manual; If you want more information, you can go to the "Important Links" section. Once in the manual, we will review the manufacturer; in the case of this Basys, it is (Spansion part number S25FL032). Next, we will check how many megabytes (MB) you have; In this case, there are 32. 
 
+<p align="center">
+  <img src="Imagenes/QSPI/Imagen3.png" alt="Image Open" style="width:30%;"> 
+</p>
+
 After adding this information, we will be presented with two options. We will choose the one that says "Family: s25flxxxp" and click "OK".
+
+<p align="center">
+  <img src="Imagenes/QSPI/Imagen4.png" alt="Image Open" style="width:30%;"> 
+</p>
 
 With this, the file will be ready and the next thing we must do is verify that the boxes:
 
@@ -352,11 +368,17 @@ With this, the file will be ready and the next thing we must do is verify that t
 
 Are activated and then click on the "Apply" button. In the "Configuration File" section, click the three dots (...) and navigate to the projects you created. Go to the folder with the file extension ".runs" and find the deployment files. After that, select the one you want to save.
 
+<p align="center">
+  <img src="Imagenes/QSPI/Imagen5.png" alt="Image Open" style="width:30%;"> 
+</p>
+
 - Step 3: Click the "Program Device" button
  
 Click the "Program" button to load the file into the ROM. The programming process may take a few minutes.
 
-
+<p align="center">
+  <img src="Imagenes/QSPI/Imagen6.png" alt="Image Open" style="width:30%;"> 
+</p>
 
 ## Running the program
 Now that we have made the extra configurations, we can run and test the program with the Basys 3.
