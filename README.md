@@ -280,6 +280,7 @@ The LEDs show an ascending bit pattern, achieving a cascade effect, where the LE
  
 When signal_endCount is high, LEDS is set to zero. 
 
+[Back to Top](#top)
   
 # Validation of the EDA Playground Testbench
 
@@ -290,43 +291,6 @@ In the files provided for this project, you can find a VHDL code that has the pu
 However, with the next link, you can instantly use it with EDA Playground. Just type the conditions you want:
 
 https://edaplayground.com/x/R4By
-
-<p align="center">
-  <img src="Images/DHvalores.PNG" alt="Imagen Open">
-</p>
-
-Using the ".teach" command, the graphical interface of the robot is printed, which is as follows:
-
-
-<p align="center">
-  <img src="Images/robotmatlab.PNG" alt="Imagen Open">
-</p>
-
-
-The direct kinematics is obtained by calculating through the analysis of each of the joints, to later obtain the analysis of the entire robot by multiplying the results of all the joints, the procedure for each joint is as follows:
-
-<p align="center">
-  <img src="Images/proceDC.PNG" alt="Imagen Open">
-</p>
-
-Therefore, it is enough to substitute the values ​​in each of the operations, said values ​​are the same as those of the DH table, this applies to all the joints of our robot, with which it only remains to multiply the analyzes of the different joints. To know that the calculation is correct, the values of the matrix obtained are compared with the values ​​of the simulation, as observed below:
-
-<p align="center">
-  <img src="Images/CD.PNG" alt="Imagen Open">
-</p>
-
-
-Since the values are the same, the calculation is correct.
-
-To obtain the inverse kinematics, a complex analysis must be carried out for each joint, in which the procedure differs depending on the characteristics of each one, so using the Robotics Toolbox plugin, the ".ikine" command can be used, which performs the calculation in the position that we assign, the result is shown below:
-
-<p align="center">
-  <img src="Images/CI.PNG" alt="Imagen Open">
-</p>
-
-
-With both kinematics validated, we proceed to use Ros and Gazebo.
-
 
 [Back to Top](#top)
 ## Initial Setup
