@@ -281,7 +281,7 @@ The LEDs show an ascending bit pattern, achieving a cascade effect, where the LE
 When signal_endCount is high, LEDS is set to zero. 
 
   
-## Validation of the EDA Playground Testbench
+# Validation of the EDA Playground Testbench
 
 Made the DH parameters, it is possible to obtain the direct and inverse kinematics of the robot, this will be done using the Matlab software, in conjunction with Peter Corke's "Robotics Toolbox" plugin, by obtaining and validating both kinematics we can obtain the kinematic analysis of the robot.
 
