@@ -72,48 +72,33 @@ They are used to create several clocks of different frequencies for different mo
  
  
 - Debouncer (debouncer):
- 
-Used to debounce button signals (UP, DOP, CP, DP, RST, BUY_CONF).
+ Used to debounce button signals (UP, DOP, CP, DP, RST, BUY_CONF).
 Provides debounced (UP_IN_SIN_REB, DOP_IN_SIN_REB, etc.) and pulsed signals.
  
  
- Money Adder (money_sum):
+- Money Adder (money_sum):
  
--	Add up the money received based on the buttons pressed and monitor the status of the system.
+Add up the money received based on the buttons pressed and monitor the status of the system.
+Generates signals such as sign_DineroRecibido and sign_RecibeMinero.
  
--	Generates signals such as sign_DineroRecibido and sign_RecibeMinero.
+ - Number Divisor for Display (divNum_Uni_Dec):
+ Divides the number of money, change and price into digits for display on seven-segment displays.
  
+ - Product Selector (select_product):
+ Controls product selection and obtains the price of the selected product.
  
-     Number Divisor for Display (divNum_Uni_Dec):
+ - Dispenser States (dispenser_states):
+ Control the status of the dispenser based on product selection, confirmation and money received.
+ Generates control signals such as signal_Dispense_out and signal_Give_change_out.
  
--	Divides the number of money, change and price into digits for display on seven-segment displays.
+ - GetChange (get_change):
+ Calculates the change that must be delivered to the user.
  
- 
-     Product Selector (select_product):
- 
--	Controls product selection and obtains the price of the selected product.
- 
- 
-     Dispenser States (dispenser_states):
- 
--	Control the status of the dispenser based on product selection, confirmation and money received.
- 
--	Generates control signals such as signal_Dispense_out and signal_Give_change_out.
- 
+ - Show Dispense LEDs (show_dispense_leds):
+ Controls the LED display based on the dispensing status and purchase confirmation.
 
-     GetChange (get_change):
- 
--	Calculates the change that must be delivered to the user.
- 
- 
-     Show Dispense LEDs (show_dispense_leds):
- 
--	Controls the LED display based on the dispensing status and purchase confirmation.
- 
- 
-Display demultiplexer (demux_display):
- 
--	Controls the display on the seven-segment display depending on the system status.
+- Display demultiplexer (demux_display):
+ Controls the display on the seven-segment display depending on the system status.
  
 Workflow:
  
