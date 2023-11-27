@@ -51,7 +51,7 @@ To run this project you need the following components:
 
 # VHDL Code Development
 
-In this section, the codes that compose this project will be described.
+In this section, the codes that compose this project will be described. All codes can be founded on the "CODES" folder of this repository.
 
 ## Main Code
 
@@ -303,7 +303,7 @@ For convenience, you can simply add the shared XDC to the code folder.
 But if you want to do it manually, you must follow the following steps:
 
 <p align="center">
-  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
+  <img src="Imagenes/XDCIM/CLOCK.jpg" alt="Pick and Place program" style="width:55%;"> 
 </p>
 
 <p align="center">
