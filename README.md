@@ -41,6 +41,100 @@ To run this project you need the following components:
 
 In this section, the codes that compose this project will be described.
 
+## Main Code (main)
+
+General structure:
+ 
+Inputs (in):
+ 
+-	clk100Mhz: Main system clock.
+ 
+-	Inputs for the switches, which select the coins of the different possible values: $1, $2, $5, $10. Represented by the switches (UP, DOP, CP, DP).
+ 
+-	To select the product, 5 switches were used to choose the product to be dispensed. Within the code, it was declared as a vector, with the name (PRODUCT_IN).
+ 
+-	Another of the switches used was to select the product (CONF_COMPRA).
+ 
+-	In order to reset the system, a push button declared within the code as (RST) was used.
+ 
+Outputs (out):
+ 
+-	LEDS: When the purchase is made (the money deposited is equal to or greater than the value of the product), they will be activated in a cascade to inform you that the product has been dispensed.
+ 
+-	seg_display: Output that represents the segments of a seven-segment display.
+ 
+-	select_display: Output indicating which digit should be shown on the seven-segment display.
+ 
+Modules and Submodules:
+ 
+-	Frequency Dividers (div_freq):
+ 
+-	Generates several clocks divided from the main frequency (clk100Mhz).
+ 
+-	They are used to create several clocks of different frequencies for different modules.
+ 
+ 
+ 
+     Debouncer (debouncer):
+ 
+-	Used to debounce button signals (UP, DOP, CP, DP, RST, BUY_CONF).
+ 
+-	Provides debounced (UP_IN_SIN_REB, DOP_IN_SIN_REB, etc.) and pulsed signals.
+ 
+ 
+     Money Adder (money_sum):
+ 
+-	Add up the money received based on the buttons pressed and monitor the status of the system.
+ 
+-	Generates signals such as sign_DineroRecibido and sign_RecibeMinero.
+ 
+ 
+     Number Divisor for Display (divNum_Uni_Dec):
+ 
+-	Divides the number of money, change and price into digits for display on seven-segment displays.
+ 
+ 
+     Product Selector (select_product):
+ 
+-	Controls product selection and obtains the price of the selected product.
+ 
+ 
+     Dispenser States (dispenser_states):
+ 
+-	Control the status of the dispenser based on product selection, confirmation and money received.
+ 
+-	Generates control signals such as signal_Dispense_out and signal_Give_change_out.
+ 
+
+     GetChange (get_change):
+ 
+-	Calculates the change that must be delivered to the user.
+ 
+ 
+     Show Dispense LEDs (show_dispense_leds):
+ 
+-	Controls the LED display based on the dispensing status and purchase confirmation.
+ 
+ 
+Display demultiplexer (demux_display):
+ 
+-	Controls the display on the seven-segment display depending on the system status.
+ 
+Workflow:
+ 
+-	The code uses multiple split clocks to synchronize different parts of the system.
+ 
+-	The debouncer is used to clean up button signals.
+ 
+-	The money adder manages the money received and controls the delivery of products and exchange.
+ 
+-	The product selector gets the price of the selected product.
+ 
+-	The status of the dispenser and the change module control the workflow for dispensing products and change.
+ 
+-	The display modules control the presentation on LEDs and seven-segment displays.
+
+
 ## Frequency Divider (div_freq_1_hz).
 
 The code is divided into two processes, gen_clock and persecond. The gen_clock process is responsible for counting and updating the clock state. When the counter reaches its maximum value (max_count), the clock is inverted (from 0 to 1 or vice versa). The counter is then reset to 0.
@@ -108,6 +202,93 @@ The buttons on the machines register the following data:
 - DOP_IN – Two pesos
 - CP_IN – Five pesos
 - DP_IN – Ten pesos
+
+## Product Selector (select_product)
+The code of the "select_product" entity is responsible for reading and saving the product that the user wishes to choose. The entity takes 6 input signals (PRODUCT_1 to PRODUCT_5 and CONFIRM_BUY) and generates 2 output signals (product_selected and product_price).
+ 
+When a product is selected, the "product_selected" signal is activated and the price of the selected product is stored in the "product_price" signal.
+ 
+When the CONFIRM_BUY signal is activated, the product is deselected and the values of the "product_selected" and "product_price" signals are reset.
+
+## Decimal to display 7 segments of the tens (bcd7seg_dec) 
+
+The code is a VHDL module that implements a converter from BCD to 7 tens segments. The Behavioral architecture of the module contains a process that performs the conversion according to the BCD-7Seg encoding pattern.
+ 
+The bcd7seg_dec entity has a single input port dec, which receives an integer between 0 and 9. This number represents the ten to be converted.
+ 
+The output port dec_segments is a 7-bit vector output, which represents the 7-segment representation of the tens of the entered number.
+ 
+The module's internal process uses a local variable segments of type std_logic_vector (6 downto 0) to store the conversion result. The conversion is performed using a case statement that evaluates the entered value and assigns the corresponding value to the segments variable.
+ 
+Finally, the process maps each bit of the segments vector to the output port segments_dec, thus completing the implementation of the module.
+
+## Decimal to display 7 segments of units (bcd7seg_uni)
+
+The code provided defines a component "bcd7seg_uni" that takes an integer from 0 to 9 as input and returns a 7-bit vector representing the activation of each segment on the 7-segment display.
+ 
+The component logic is implemented within a process block that is executed every time the value of the integer changes. Within the process block, a "segments" variable declaration is used to store the bit pattern that represents the activation of each segment on the 7-segment display.
+ 
+A "case" statement is then used to determine the bit pattern that corresponds to the input integer. Each branch of the case assigns a bit pattern to the segments variable.
+ 
+Finally, the bits of the "segments" variable are connected to the output terminals of the component. This allows the bit pattern representing the activation of each segment on the 7-segment display to be transmitted outside the component.
+
+## Divide number into tens and units (divNum_Uni_Dec)
+
+The code you provided divides a number into two digits, ones and tens. These digits are converted to BCD numbers and displayed on the corresponding 7-segment displays.
+ 
+The process of dividing the number into ones and tens is done within a process block, which is executed every time the value of the number changes. The process block checks to see if the number is 0, in which case the ones and tens are set to 0. If the number is not 0, the ones and tens are obtained using the modulo operation and division.
+ 
+For each BCD digit (ones and tens), a "bcd7seg_uni" and "bcd7seg_dec" component is used respectively, which convert the BCD digit into a 7-bit vector that represents the activation of each segment on the 7-segment display.
+
+## Debouncer (debouncer)
+
+This code defines a debouncer module that uses a shift register and a counter to slow down the button read. The debounce logic is based on detecting when the shift register contains only '1'.
+ 
+A "counterNbits" component is used to count the number of clock cycles since the button was last read. This component is initialized with a 20-bit counter.
+ 
+On each clock cycle, the shift register is updated to store the current state of the button and the previous 7 states.
+ 
+If the shift register contains only '1', then the button is considered stable and the module sends a pulse to the "btn_out_reg" output.
+ 
+The "debouncer" module has two flip-flops (ffl and ff2) to store the current state and the previous state of "btn_out_reg". This is used to detect transitions in the button state.
+ 
+The "btn_pulsed" output is activated when there is a transition in the button state (from 0 to 1). This is achieved by applying the "and" operation between the current and previous states of "btn_out_reg" (ffl and ff2, respectively).
+ 
+The "debouncer" module is designed to work with clocks up to 100 MHz and is capable of handling high-speed transitions on the button.
+
+## Dispenser States (dispenser_states)
+
+This code represents an FSM (Finite State Machine) that controls the states of a dispenser.
+ 
+The code is organized into different logical blocks: STATE_MEMORY, NEXT_STATE_LOGIC and OUTPUT_LOGIC.
+ 
+In STATE_MEMORY, the current state is memorized. The process is synchronized with the clock, so it is updated on each edge rise.
+ 
+In NEXT_STATE_LOGIC, state transition logic is performed. The current state and the selected product signal are evaluated to determine the next state.
+ 
+In OUTPUT_LOGIC, the output logic is realized. The current state is evaluated and the Dispense and Give_Change control signals are activated accordingly.
+ 
+The states and their transitions are defined in the table of the following logical block. For example, if the FSM is in state "state_Wait" and a product is selected (productSelected = '1'), the next state will be "state_P_Select".
+ 
+This code implements a simple FSM that can be extended and adapted to different applications. However, it should be noted that the code only shows a theoretical and conceptual approach to the circuit design, and does not provide information on how to physically implement the circuit on an FPGA or other type of hardware device.
+
+## Change Delivery (get_change) 
+
+The provided code implements a circuit that determines the value of change that should be returned to the user after purchasing a product. This circuit is based on a process that is executed on each edge rise of the clock.
+ 
+When the confirmation signal (Confirm) is activated ('1'), the circuit calculates the value of the change as the difference between the accumulated money (accumulatedmoney) and the price of the product (Productprice). This value is then stored in the "change_value" signal.
+
+## Confirm purchase with LEDS (show_dispensar_leds)
+
+This code is responsible for displaying a bit pattern on LEDs after confirming a purchase.
+ 
+Count starts when startCount is high and Confirm_Purchase_IN is also high.
+ 
+When the purchase is confirmed (Confirm_purchase_IN is high), it counts to 18, then activates signal_endCount and increases countNumber by 1.
+ 
+The LEDs show an ascending bit pattern, achieving a cascade effect, where the LEDs turn off from the largest LED (15) to the smallest (0).
+ 
+When signal_endCount is high, LEDS is set to zero. 
 
   
 ### Obtaining and validation of the Forward Kinematics and Inverse Kinematics using Matlab.
