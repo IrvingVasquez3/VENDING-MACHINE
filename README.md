@@ -30,7 +30,7 @@ The Basys 3 is an FPGA (Field Programmable Gate Array) board and stands as one o
   - [Dispenser States](#Dispenser-States)
   - [Change Delivery](#Change-Delivery)
   - [Confirm purchase with LEDS](#Confirm-purchase-with-LEDS)
-  - [Validation of the EDA Playground Testbench](#validation-of-the-eda-playground-testbench)
+- [Validation of the EDA Playground Testbench](#validation-of-the-eda-playground-testbench)
 - [Initial Setup](#initial-setup)
   - [Installation](#installation)
   - [QSPI](#qspi)
