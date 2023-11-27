@@ -17,7 +17,7 @@ The Basys 3 is an FPGA (Field Programmable Gate Array) board and stands as one o
 - [Project Overview](#project-overview)  
 - [Requirements](#requirements)
 - [VHDL Code Development](#vhdl-code-development)
-  - [Coin Detector](#coin-detector)
+  - [Coin Detector](#Frequency-Divider-(div_freq_1_hz).)
   - [Validation of the EDA Playground Testbench](#validation-of-the-eda-playground-testbench)
 - [Initial Setup](#initial-setup)
   - [Installation](#installation)
@@ -42,9 +42,13 @@ To run this project you need the following components:
 ### Frequency Divider (div_freq_1_hz).
 
 The code is divided into two processes, gen_clock and persecond. The gen_clock process is responsible for counting and updating the clock state. When the counter reaches its maximum value (max_count), the clock is inverted (from 0 to 1 or vice versa). The counter is then reset to 0.
+
 The persecond process simply takes the split clock value (clk_state) and assigns it to the clkSplit output signal.
+
 This design has the advantage that the frequency of clkDivided can be easily changed by simply changing the value of max_count. Additionally, using an event-based account ensures that the split clock has a consistent, well-defined period, which is useful for controlling devices.
+
 A disadvantage of this design is that it consumes more resources than other frequency division methods, such as D flip-flops, but it has the advantage of being more flexible and not relying on external components such as counters.
+
 The code also includes a reset to reset the counter and split clock signal at any time.
 
   
