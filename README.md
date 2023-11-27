@@ -77,8 +77,7 @@ Provides debounced (UP_IN_SIN_REB, DOP_IN_SIN_REB, etc.) and pulsed signals.
  
  
 - Money Adder (money_sum):
- 
-Add up the money received based on the buttons pressed and monitor the status of the system.
+ Add up the money received based on the buttons pressed and monitor the status of the system.
 Generates signals such as sign_DineroRecibido and sign_RecibeMinero.
  
  - Number Divisor for Display (divNum_Uni_Dec):
