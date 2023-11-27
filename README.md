@@ -104,10 +104,10 @@ Finally, a process is implemented that manages the flow of information. This pro
 In summary, the sum_money module counts the coins received at a dispenser. To do this, it uses a register to store the amount of money received and performs increment and reset operations based on input signals indicating the receipt of coins and the command to reset the money counter.
 The buttons on the machines register the following data:
 
-UP_IN – One peso
-DOP_IN – Two pesos
-CP_IN – Five pesos
-DP_IN – Ten pesos
+- UP_IN – One peso
+- DOP_IN – Two pesos
+- CP_IN – Five pesos
+- DP_IN – Ten pesos
 
   
 ### Obtaining and validation of the Forward Kinematics and Inverse Kinematics using Matlab.
