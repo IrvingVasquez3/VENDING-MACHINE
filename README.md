@@ -50,8 +50,7 @@ Inputs (in):
 -	clk100Mhz: Main system clock.
  
 -	Inputs for the switches, which select the coins of the different possible values: $1, $2, $5, $10. Represented by the switches (UP, DOP, CP, DP).
- 
--	To select the product, 5 switches were used to choose the product to be dispensed. Within the code, it was declared as a vector, with the name (PRODUCT_IN).
+To select the product, 5 switches were used to choose the product to be dispensed. Within the code, it was declared as a vector, with the name (PRODUCT_IN).
  
 -	Another of the switches used was to select the product (CONF_COMPRA).
  
