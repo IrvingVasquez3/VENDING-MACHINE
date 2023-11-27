@@ -315,12 +315,16 @@ But if you want to do it manually, you must follow the following steps:
   <img src="Imagenes/XDCIM/LEDS2.jpg" alt="Pick and Place program" style="width:55%;"> 
 </p>
 
-<p align="center">
-  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
-</p>
+- Now, is time to set the switches that will control what product will be chosen.
 
 <p align="center">
-  <img src="Images/PickandPlace.png" alt="Pick and Place program" style="width:55%;"> 
+  <img src="Imagenes/XDCIM/SWITCH2.jpg" alt="Pick and Place program" style="width:55%;"> 
+</p>
+
+- And finally, add the push button for the reset and the switches that will control the value of the coins inserted.
+
+<p align="center">
+  <img src="Imagenes/XDCIM/SWITCS1.jpg" alt="Pick and Place program" style="width:55%;"> 
 </p>
 
 Remember, if you want to change the name of the components declared on the XDC, you also must change their name in the VHDL codes.
