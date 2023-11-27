@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Vending Machine
 <p align="center">
-  <img src="Imagenes/16112023.png" alt="Image Open" style="width:30%;"> 
+  <img src="Imagenes/Maquina_Botanas_Frente.png" alt="Image Open" style="width:30%;"> 
 </p>
 
 
