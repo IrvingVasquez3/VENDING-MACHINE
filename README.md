@@ -31,10 +31,9 @@ The Basys 3 is an FPGA (Field Programmable Gate Array) board and stands as one o
   - [Change Delivery](#Change-Delivery)
   - [Confirm purchase with LEDS](#Confirm-purchase-with-LEDS)
 - [Validation of the EDA Playground Testbench](#validation-of-the-eda-playground-testbench)
-- [Initial Setup](#initial-setup)
-  - [Installation](#installation)
+- [Extra Configurations Setup](#extra-configurations)
   - [QSPI](#qspi)
-  - [Hardware Configuration](#hardware-configuration)
+  - [XDC Configuration](#XDC-Configuration)
   - [Basys 3](#basys-3)
   - [Simulation](#simulation)
   - [Changes in the original project](#changes-in-the-original-project)
@@ -286,7 +285,7 @@ However, with the next link, you can instantly use it with EDA Playground. Just 
 https://edaplayground.com/x/R4By
 
 [Back to Top](#top)
-## Extra Configuratios
+# Extra Configurations
 
 In order to implement this project on a Basys 3, you must use the Vivado software.
 
