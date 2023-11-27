@@ -35,7 +35,7 @@ The Basys 3 is an FPGA (Field Programmable Gate Array) board and stands as one o
   - [XDC Configuration](#XDC-Configuration)
   - [QSPI Configuration](#QSPI-Configuration)
   - [Running the program](#Running-the-program)
-- [Future Enhancements](#future-enhancements)
+- [Future Improvements](#Future-Improvements)
 - [Important Links](#important-links)
 - [Contact](#contact)
 ## Requirements
