@@ -18,9 +18,9 @@ The Basys 3 is an FPGA (Field Programmable Gate Array) board and stands as one o
 - [Requirements](#requirements)
 - [VHDL Code Development](#vhdl-code-development)
   - [Main](#main-code)
-  - [Frequency Divider](#frequency-divider-(div_freq_1_hz).)
-  - [Counter from 0 to N bits](#frequency-divider-(div-_-freq-_-1-_-hz).)
-  - [Demultiplexer to show numbers on display](#frequency-divider-(div_freq_1_hz).)
+  - [Frequency Divider](#frequency-divider)
+  - [Counter from 0 to N bits](#counter-from-0-to-N-bits)
+  - [Demultiplexer to show numbers on display](#demultiplexer-to-show-numbers-on-display)
   - [Adder](#frequency-divider-(div_freq_1_hz).)
   - [Product Selector](#frequency-divider-(div_freq_1_hz).)
   - [Decimal to display 7 segments of the tens](#frequency-divider-(div_freq_1_hz).)
@@ -82,7 +82,6 @@ Generates several clocks divided from the main frequency (clk100Mhz).
 They are used to create several clocks of different frequencies for different modules.
  
  
- 
 - Debouncer (debouncer):
  Used to debounce button signals (UP, DOP, CP, DP, RST, BUY_CONF).
 Provides debounced (UP_IN_SIN_REB, DOP_IN_SIN_REB, etc.) and pulsed signals.
@@ -126,7 +125,7 @@ Workflow:
 -	The display modules control the presentation on LEDs and seven-segment displays.
 
 
-## Frequency Divider (div_freq_1_hz).
+## Frequency Divider
 
 The code is divided into two processes, gen_clock and persecond. The gen_clock process is responsible for counting and updating the clock state. When the counter reaches its maximum value (max_count), the clock is inverted (from 0 to 1 or vice versa). The counter is then reset to 0.
 
@@ -141,7 +140,7 @@ The code also includes a reset to reset the counter and split clock signal at an
   <img src="Images/procesomatriz.PNG" alt="Imagen Open">
   </p>
   
-## Counter from 0 to N bits (counterNbits).
+## Counter from 0 to N bits
 
 The code is an N-bit counter in VHDL.
 
@@ -159,7 +158,7 @@ The code defines a counter that counts up to the maximum value allowed by N bits
 
 The "terminal_count" signal is activated when the counter reaches its maximum value.
 
-## Demultiplexer to show numbers on display (demux_display).
+## Demultiplexer to show numbers on display
 
 The circuit shown is a multiplexer (mux) that is responsible for controlling which display should turn on. This is achieved using a clock signal (clk1000hz) and a state signal (refresh_state).
 
@@ -173,7 +172,7 @@ Additionally, the "show_display" process uses a set of case instructions to dete
 
 Finally, it is worth mentioning that the circuit design is based on a multiplexer with a minimum of components, which facilitates its implementation and reduces costs. However, the use of a register and a counter also involves some consumption of additional resources in terms of time and area.
 
-## Adder (money_sum).
+## Adder
 The sum of money is a module that counts the coins received at a dispenser. To implement this module, we must first create a record that stores the amount of money received so far.
 
 The "prev_currency" register is updated every time a currency is detected. The variables UP_IN, DOP_IN, CP_IN and DP_IN are used to detect the receipt of coins. When a coin is detected, the "prev_currency" register is incremented by 1, 2, 5, or 10, depending on the coin that was received.
@@ -194,14 +193,14 @@ The buttons on the machines register the following data:
 - CP_IN – Five pesos
 - DP_IN – Ten pesos
 
-## Product Selector (select_product)
+## Product Selector
 The code of the "select_product" entity is responsible for reading and saving the product that the user wishes to choose. The entity takes 6 input signals (PRODUCT_1 to PRODUCT_5 and CONFIRM_BUY) and generates 2 output signals (product_selected and product_price).
  
 When a product is selected, the "product_selected" signal is activated and the price of the selected product is stored in the "product_price" signal.
  
 When the CONFIRM_BUY signal is activated, the product is deselected and the values of the "product_selected" and "product_price" signals are reset.
 
-## Decimal to display 7 segments of the tens (bcd7seg_dec) 
+## Decimal to display 7 segments of the tens
 
 The code is a VHDL module that implements a converter from BCD to 7 tens segments. The Behavioral architecture of the module contains a process that performs the conversion according to the BCD-7Seg encoding pattern.
  
@@ -213,7 +212,7 @@ The module's internal process uses a local variable segments of type std_logic_v
  
 Finally, the process maps each bit of the segments vector to the output port segments_dec, thus completing the implementation of the module.
 
-## Decimal to display 7 segments of units (bcd7seg_uni)
+## Decimal to display 7 segments of units
 
 The code provided defines a component "bcd7seg_uni" that takes an integer from 0 to 9 as input and returns a 7-bit vector representing the activation of each segment on the 7-segment display.
  
@@ -223,7 +222,7 @@ A "case" statement is then used to determine the bit pattern that corresponds to
  
 Finally, the bits of the "segments" variable are connected to the output terminals of the component. This allows the bit pattern representing the activation of each segment on the 7-segment display to be transmitted outside the component.
 
-## Divide number into tens and units (divNum_Uni_Dec)
+## Divide number into tens and units
 
 The code you provided divides a number into two digits, ones and tens. These digits are converted to BCD numbers and displayed on the corresponding 7-segment displays.
  
@@ -231,7 +230,7 @@ The process of dividing the number into ones and tens is done within a process b
  
 For each BCD digit (ones and tens), a "bcd7seg_uni" and "bcd7seg_dec" component is used respectively, which convert the BCD digit into a 7-bit vector that represents the activation of each segment on the 7-segment display.
 
-## Debouncer (debouncer)
+## Debouncer
 
 This code defines a debouncer module that uses a shift register and a counter to slow down the button read. The debounce logic is based on detecting when the shift register contains only '1'.
  
@@ -247,7 +246,7 @@ The "btn_pulsed" output is activated when there is a transition in the button st
  
 The "debouncer" module is designed to work with clocks up to 100 MHz and is capable of handling high-speed transitions on the button.
 
-## Dispenser States (dispenser_states)
+## Dispenser States
 
 This code represents an FSM (Finite State Machine) that controls the states of a dispenser.
  
@@ -263,13 +262,13 @@ The states and their transitions are defined in the table of the following logic
  
 This code implements a simple FSM that can be extended and adapted to different applications. However, it should be noted that the code only shows a theoretical and conceptual approach to the circuit design, and does not provide information on how to physically implement the circuit on an FPGA or other type of hardware device.
 
-## Change Delivery (get_change) 
+## Change Delivery
 
 The provided code implements a circuit that determines the value of change that should be returned to the user after purchasing a product. This circuit is based on a process that is executed on each edge rise of the clock.
  
 When the confirmation signal (Confirm) is activated ('1'), the circuit calculates the value of the change as the difference between the accumulated money (accumulatedmoney) and the price of the product (Productprice). This value is then stored in the "change_value" signal.
 
-## Confirm purchase with LEDS (show_dispensar_leds)
+## Confirm purchase with LEDS
 
 This code is responsible for displaying a bit pattern on LEDs after confirming a purchase.
  
