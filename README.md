@@ -39,7 +39,7 @@ To run this project you need the following components:
 
 # VHDL Code Development
 
-### Frequency Divider (div_freq_1_hz).
+## Frequency Divider (div_freq_1_hz).
 
 The code is divided into two processes, gen_clock and persecond. The gen_clock process is responsible for counting and updating the clock state. When the counter reaches its maximum value (max_count), the clock is inverted (from 0 to 1 or vice versa). The counter is then reset to 0.
 
